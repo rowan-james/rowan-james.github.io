@@ -33,7 +33,7 @@
     word-break: break-word;
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 1000px) {
     .projects {
         flex-direction: row;
         justify-content: initial;
