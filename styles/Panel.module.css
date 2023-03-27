@@ -1,0 +1,19 @@
+.container {
+    --aug-border-bg: var(--secondary-color);
+    --aug-border-top: 1px;
+    --aug-border-right: 1px;
+    --aug-border-bottom: 1px;
+    --aug-border-left: 1px;
+
+    padding: 0.1rem 1rem 1rem 1rem;
+}
+
+.header {
+    justify-content: end;
+}
+
+.title {
+    text-transform: uppercase;
+    color: var(--secondary-color);
+    font-weight: bold;
+}

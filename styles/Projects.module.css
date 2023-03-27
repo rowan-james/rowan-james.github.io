@@ -1,0 +1,42 @@
+.projects {
+    margin: -8px -8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    --aug-border-bg: var(--primary-color);
+    --aug-border-top: 1px;
+    --aug-border-right: 2px;
+    --aug-border-bottom: 1px;
+    --aug-border-left: 1px;
+
+    padding: 16px;
+    margin: 8px 8px;
+    max-width: 200px;
+}
+
+.header {
+    font-family: var(--header-font-family);
+    color: var(--primary-color);
+    text-transform: uppercase;
+    margin-left: 2rem;
+}
+
+.project .title {
+    font-weight: bold;
+}
+
+.project .description {
+    word-break: break-word;
+}
+
+@media only screen and (min-width: 600px) {
+    .projects {
+        flex-direction: row;
+        justify-content: initial;
+        align-items: initial;
+    }
+}
