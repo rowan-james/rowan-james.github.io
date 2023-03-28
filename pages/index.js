@@ -35,7 +35,7 @@ export default function Home () {
                 <div className={styles['network-separator-a']} data-augmented-ui="border">&nbsp;</div>
                 <div className={styles['network-separator-b']} data-augmented-ui="border">&nbsp;</div>
               </div>
-              <div class="row flex-space-between">
+              <div className="row flex-space-between">
                 <div>
                   <Icon alt="Github icon" image="github-mark-white.svg" text="Github" url="https://github.com" />
                   <Icon alt="Email icon" image="mail.svg" text="Email" url="mailto:rowan.james.dev@gmail.com" />

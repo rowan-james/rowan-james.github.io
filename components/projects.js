@@ -4,7 +4,6 @@ import { useLocalStorage } from '../hooks/useLocalStorage'
 import styles from '../styles/Projects.module.css'
 import * as rand from '../util/rand.js'
 import Spinner from './spinner'
-console.log(rand)
 
 const pipe = (...fns) => (x) => fns.reduce((v, f) => f(v), x)
 
