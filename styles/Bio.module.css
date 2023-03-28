@@ -1,6 +1,7 @@
 .icon-container {
     position: relative;
     margin: 28px 24px;
+    perspective: 1000px;
 }
 
 .arc {
@@ -59,12 +60,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* margin-right: 1rem; */
 }
 
 .icon {
-    /* width: 100px;
-    height: 100px; */
 }
 
 .name-container {

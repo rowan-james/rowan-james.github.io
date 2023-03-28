@@ -1,25 +1,25 @@
 :root {
-  --black: #232b2b;
+  --light-black: #232b2b;
+  --black: #1a2020;
   --white: #fbfaf5;
 
-  /* --green: #00ff9f;
-  --light-blue: #00b8ff;
-  --dark-blue: #001eff;
-  --magenta: #bd00ff;
-  --purple: #d600ff; */
+  --red: #f22;
+  --neon-yellow: #fff01f;
 
-  --green: #0abdc6;
-  --purple: #711c91;
-  --pink: #ea00d9;
-  --dark-blue: #133e7c;
-  --darker-blue: #091833;
-  --mint: #00f7ff;
+  --spring-green: #00ff9f;
+  --blue-bolt: #00b8ff;
+  --blue: #001eff;
+  --electric-purple: #bd00ff;
+  --phlox: #d600ff;
 
   --header-font-family: 'Rajdhani', 'Open Sans', Verdana, Geneva, Tahoma, sans-serif;
   --font-family: 'Open Sans', Verdana, Geneva, Tahoma, sans-serif;
-  --primary-color: var(--green);
-  --secondary-color: var(--pink);
-  --tertiary-color: var(--purple);
+
+  --primary-color: var(--spring-green);
+  --secondary-color: var(--blue-bolt);
+  --tertiary-color: var(--phlox);
+  --error-color: var(--red);
+  --warning-color: var(--neon-yellow);
   --font-color: var(--white);
   --background-color: var(--black);
 }
@@ -71,9 +71,18 @@ a:active {
   flex-direction: row;
 }
 
-.flex-space-between {
+.align-center {
+  align-items: center;
+}
+
+.flex-space-between-desktop {
   justify-content: center;
 }
+
+.flex-space-between {
+  justify-content: space-between;
+}
+
 
 .full-width {
   width: 100%;
@@ -86,7 +95,7 @@ a:active {
     flex-direction: row;
   }
 
-  .flex-space-between {
+  .flex-space-between-desktop {
     justify-content: space-between;
   }
 }
@@ -100,14 +109,23 @@ a {
   box-sizing: border-box;
 }
 
+.warning {
+  --aug-border-bg: var(--error-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  color: var(--error-color);
+  margin-top: 0.9rem;
+  margin-right: 0.5rem;
+}
+
 .flicker-on-off {
   opacity: 0;
   animation:
     flicker-on 0.75s steps(1) 1s 1 forwards,
     flicker-off 0.75s steps(1) 3.75s 1 forwards;
 }
-
-
 
 @keyframes flicker-on {
   0% {

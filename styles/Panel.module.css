@@ -1,5 +1,17 @@
+.wrapper {
+    --aug-border-bg: var(--warning-color);
+    --aug-border-top: 1px;
+    --aug-border-right: 1px;
+    --aug-border-bottom: 1px;
+    --aug-border-left: 1px;
+
+    /* padding: 2.25rem 0.25rem; */
+    padding: 0.25rem;
+    height: min-content;
+}
+
 .container {
-    --aug-border-bg: var(--secondary-color);
+    --aug-border-bg: var(--error-color);
     --aug-border-top: 1px;
     --aug-border-right: 1px;
     --aug-border-bottom: 1px;
@@ -9,11 +21,5 @@
 }
 
 .header {
-    justify-content: end;
-}
-
-.title {
-    text-transform: uppercase;
-    color: var(--secondary-color);
-    font-weight: bold;
+    justify-content: flex-end;
 }

@@ -7,6 +7,7 @@ import 'augmented-ui'
 import clsx from 'clsx'
 import Head from 'next/head'
 import Bio from '../components/bio.js'
+import ErrorIcon from '../components/error-triangle.js'
 import Icon from '../components/icon.js'
 import Panel from '../components/panel.js'
 import Projects from '../components/projects.js'
@@ -23,11 +24,23 @@ export default function Home () {
 
       <main className={styles.main}>
         <div className={styles.window}>
-          <div className={clsx(styles['space-below'], "row flex-space-between")}>
+          <div className={clsx(styles['first-row'], "row flex-space-between-desktop")}>
             <Bio className={styles.bio} name="Rowan James" title="Profession: Developer" icon="/Flf8rd5WYAAJ8OU.jpg"></Bio>
             <Panel className={styles.network} title="Other Connections Found">
-              <Icon alt="Github icon" image="github-mark-white.svg" text="Github" url="https://github.com" />
-              <Icon alt="Email icon" image="mail.svg" text="Email" url="mailto:rowan.james.dev@gmail.com" />
+              <div className={clsx(styles.header, "flex flex-row flex-space-between")}>
+                <ErrorIcon />
+                <p className={styles.title}>Other Connections Found</p>
+              </div>
+              <div className={styles['network-separator']}>
+                <div className={styles['network-separator-a']} data-augmented-ui="border">&nbsp;</div>
+                <div className={styles['network-separator-b']} data-augmented-ui="border">&nbsp;</div>
+              </div>
+              <div class="row flex-space-between">
+                <div>
+                  <Icon alt="Github icon" image="github-mark-white.svg" text="Github" url="https://github.com" />
+                  <Icon alt="Email icon" image="mail.svg" text="Email" url="mailto:rowan.james.dev@gmail.com" />
+                </div>
+              </div>
             </Panel>
           </div>
 
