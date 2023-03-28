@@ -1,0 +1,11 @@
+.container {
+    --aug-border-bg: var(--error-color);
+    --aug-border-all: 1px;
+    --aug-border-width: 1px;
+
+    background: repeating-linear-gradient(45deg,
+            var(--error-color),
+            var(--error-color) 10px,
+            transparent 10px,
+            transparent 20px);
+}

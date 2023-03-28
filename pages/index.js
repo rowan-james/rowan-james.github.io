@@ -7,6 +7,7 @@ import 'augmented-ui'
 import clsx from 'clsx'
 import Head from 'next/head'
 import Bio from '../components/bio.js'
+import WarningBar from '../components/error-bar.js'
 import ErrorIcon from '../components/error-triangle.js'
 import Icon from '../components/icon.js'
 import Panel from '../components/panel.js'
@@ -25,7 +26,12 @@ export default function Home () {
       <main className={styles.main}>
         <div className={styles.window}>
           <div className={clsx(styles['first-row'], "row flex-space-between-desktop")}>
-            <Bio className={styles.bio} name="Rowan James" title="Profession: Developer" icon="/Flf8rd5WYAAJ8OU.jpg"></Bio>
+            <Bio
+              className={styles.bio}
+              name="Rowan James"
+              title="Profession: Developer"
+              icon="/Flf8rd5WYAAJ8OU.jpg">
+            </Bio>
             <Panel className={styles.network} title="Other Connections Found">
               <div className={clsx(styles.header, "flex flex-row flex-space-between")}>
                 <ErrorIcon />
@@ -41,6 +47,9 @@ export default function Home () {
                   <Icon alt="Email icon" image="mail.svg" text="Email" url="mailto:rowan.james.dev@gmail.com" />
                 </div>
               </div>
+              <WarningBar style={{ width: '100%', height: '16px' }}
+                data-augmented-ui="tr-clip bl-clip border"
+              />
             </Panel>
           </div>
 
@@ -49,9 +58,6 @@ export default function Home () {
           </div>
         </div>
       </main>
-
-      {/* <footer className={styles.footer}>
-      </footer> */}
     </div>
   )
 }

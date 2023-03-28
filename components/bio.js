@@ -3,7 +3,7 @@ import Image from 'next/image'
 import styles from '../styles/Bio.module.css'
 
 function Bio ({ name, title, icon, resume, className, ...props } = {}) {
-    return <div className={clsx(className, "flex flex-column")}>
+    return <div className={clsx(className, "flex flex-column")} {...props}>
         <p className={styles.header}>USER INFO</p>
         <div className="flex flex-row">
             <div className={styles['icon-container']}>

@@ -29,9 +29,8 @@
   padding: 16px;
   width: 100%;
   height: 100%;
-  max-width: 800px;
+  max-width: 900px;
 }
-
 
 .container {
   width: 100%;
@@ -55,7 +54,7 @@
 }
 
 .title {
-  font-family: var(--header-font-family);
+  /* font-family: var(--header-font-family); */
   text-transform: uppercase;
   color: var(--error-color);
   font-weight: bold;
@@ -118,7 +117,7 @@
 }
 
 .network-separator-b {
-  width: 80%;
+  width: 70%;
   --aug-border-bg: var(--error-color);
   --aug-border-top: 1px;
   --aug-border-right: -1px;
@@ -126,62 +125,45 @@
   --aug-border-left: 0px;
 }
 
-.code {
-  background: #fafafa;
-  border-radius: 5px;
-  padding: 0.75rem;
-  font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
+.network {
+  visibility: hidden;
+  opacity: 0;
+  transform: scale(0);
+  animation: reveal 0.5s 0s linear forwards;
 }
 
-.grid {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  max-width: 800px;
-  margin-top: 3rem;
-}
+@keyframes reveal {
+  0% {
+    visibility: hidden;
+    opacity: 0;
+  }
 
-.card {
-  margin: 1rem;
-  padding: 1.5rem;
-  text-align: left;
-  color: inherit;
-  text-decoration: none;
-  border: 1px solid #eaeaea;
-  border-radius: 10px;
-  transition: color 0.15s ease, border-color 0.15s ease;
-  width: 45%;
-}
+  0.01% {
+    visibility: visible;
+    opacity: 1;
+  }
 
-.card:hover,
-.card:focus,
-.card:active {
-  color: #0070f3;
-  border-color: #0070f3;
-}
+  20% {
+    visibility: visible;
+    opacity: 1;
+    transform: scaleX(1.1) scaleY(0.001);
+  }
 
-.card h2 {
-  margin: 0 0 1rem 0;
-  font-size: 1.5rem;
-}
+  25% {
+    visibility: visible;
+    opacity: 1;
+    transform: scaleY(0.01);
+  }
 
-.card p {
-  margin: 0;
-  font-size: 1.25rem;
-  line-height: 1.5;
-}
+  90% {
+    visibility: visible;
+    opacity: 1;
+    transform: scaleY(1.1);
+  }
 
-.logo {
-  height: 1em;
-  margin-left: 0.5rem;
-}
-
-@media (max-width: 600px) {
-  .grid {
-    width: 100%;
-    flex-direction: column;
+  100% {
+    visibility: visible;
+    opacity: 1;
+    transform: initial;
   }
 }

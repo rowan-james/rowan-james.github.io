@@ -15,14 +15,10 @@ const Card = ({ children, ...props }) => {
     return <div className={styles.card} data-augmented-ui="tl-2-clip-x tr-clip border" {...props}>{children}</div>
 }
 
-const Project = ({ name, description, url } = {}) => {
+const Project = ({ header, name, description, url } = {}) => {
     return <div className={styles.project}>
-        <div className={styles['project-header']}
-            style={{
-            }}
-            data-augmented-ui="br-clip border"
-        >
-            File
+        <div className={styles['project-header']} data-augmented-ui="br-clip border">
+            {header}
         </div>
         <a href={url}>
             <p className={styles.title}>{name}</p>
@@ -42,7 +38,9 @@ const parseRepos = repos => {
     return repos.map(repo => ({
         name: repo.name,
         description: repo.description,
-        url: repo.html_url
+        url: repo.html_url,
+        forks: repo.forks_count,
+        stars: repo.stargazers_count
     }))
 }
 
@@ -51,20 +49,30 @@ const tap = fn => x => {
     return x
 }
 
+const Checkmark = () => <span className={styles.checkmark}>&#x2714;</span>
+
 function Projects (props) {
     const [renderComplete, setRenderCompete] = useState(false)
+    const [loaded, setLoaded] = useState(false)
     const [num1, setNum1] = useState(123)
     const [num2, setNum2] = useState(456)
+    const [index, setIndex] = useState(0)
     const [projects, setProjects] = useLocalStorage('projects', [])
+    const [displayedProjects, setDisplayedProjects] = useState([])
+    const [projectsComplete, setProjectsComplete] = useState(false)
 
     useEffect(() => {
-        const interval = setInterval(() =>{
+        const interval = setInterval(() => {
             setNum1(rand.range(0, 999).toString().padStart(3, '0'))
             setNum2(rand.range(0, 999).toString().padStart(3, '0'))
         }, 50)
 
+        if (projectsComplete) {
+            clearInterval(interval)
+        }
+
         return () => clearInterval(interval)
-    }, [])
+    }, [projectsComplete])
 
     useEffect(() => {
         if (projects.length == 0) {
@@ -72,25 +80,46 @@ function Projects (props) {
                 .then(reverse)
                 .then(parseRepos)
                 .then(setProjects)
+                .then(() => setLoaded(true))
+        } else {
+            setLoaded(true)
         }
 
         setRenderCompete(true)
     }, [projects, setProjects])
 
+    useEffect(() => {
+        if (loaded) {
+            if (index < projects.length) {
+                setTimeout(() => {
+                    setDisplayedProjects(displayedProjects.concat(projects[index]))
+                    setIndex(index + 1)
+                }, rand.range(300, 500))
+            } else {
+                setProjectsComplete(true)
+            }
+        }
+    }, [loaded, projects, displayedProjects])
+
     return !renderComplete ? null : <div>
         <div className="flex flex-row align-center">
-            <Spinner />
+            {projectsComplete ? <Checkmark /> : <Spinner />}
             <p className={styles.header}>
-                Searching for files...
+                Searching for files... {projectsComplete ? 'COMPLETE' : ''}
             </p>
             <p className={clsx(styles.header, styles.counter)}>{num1} {num2}</p>
         </div>
 
         <div className={styles.separator} data-augmented-ui="border">&nbsp;</div>
         <div className={styles.projects}>
-            {projects?.map(project => (
+            {displayedProjects?.map(project => (
                 <Card key={project.name}>
-                    <Project name={project.name} description={project.description} url={project.url} />
+                    <Project
+                        header={`f${project.forks} s${project.stars}`}
+                        name={project.name}
+                        description={project.description}
+                        url={project.url}
+                    />
                 </Card>
             ))}
         </div>
