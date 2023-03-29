@@ -30,7 +30,7 @@ export default function Home () {
               className={styles.bio}
               name="Rowan James"
               title="Profession: Developer"
-              icon="/Flf8rd5WYAAJ8OU.jpg">
+              icon="https://github.com/rowan-james.png">
             </Bio>
             <Panel className={styles.network} title="Other Connections Found">
               <div className={clsx(styles.header, "flex flex-row flex-space-between")}>

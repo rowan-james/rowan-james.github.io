@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 import { useEffect, useState } from 'react'
-import { useLocalStorage } from '../hooks/useLocalStorage'
+import { useSessionStorage } from '../hooks/useSessionStorage'
 import styles from '../styles/Projects.module.css'
 import * as rand from '../util/rand.js'
 import Spinner from './spinner'
@@ -57,7 +57,7 @@ function Projects (props) {
     const [num1, setNum1] = useState(123)
     const [num2, setNum2] = useState(456)
     const [index, setIndex] = useState(0)
-    const [projects, setProjects] = useLocalStorage('projects', [])
+    const [projects, setProjects] = useSessionStorage('projects', [])
     const [displayedProjects, setDisplayedProjects] = useState([])
     const [projectsComplete, setProjectsComplete] = useState(false)
 
@@ -105,7 +105,7 @@ function Projects (props) {
         <div className="flex flex-row align-center">
             {projectsComplete ? <Checkmark /> : <Spinner />}
             <p className={styles.header}>
-                Searching for files... {projectsComplete ? 'COMPLETE' : ''}
+                <span style={{ color: 'var(--white)' }}>Searching for files...</span> {projectsComplete ? <span>COMPLETE</span> : ''}
             </p>
             <p className={clsx(styles.header, styles.counter)}>{num1} {num2}</p>
         </div>
