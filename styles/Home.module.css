@@ -108,8 +108,8 @@
   --aug-border-bg: var(--warning-color);
   --aug-border-top: 1px;
   --aug-border-right: 1px;
-  --aug-border-bottom: 0px;
-  --aug-border-left: 0px;
+  --aug-border-bottom: -1px;
+  --aug-border-left: -1px;
 
   --aug-clip-tr1: initial;
   --aug-clip-tr2: initial;
@@ -121,8 +121,8 @@
   --aug-border-bg: var(--error-color);
   --aug-border-top: 1px;
   --aug-border-right: -1px;
-  --aug-border-bottom: 0px;
-  --aug-border-left: 0px;
+  --aug-border-bottom: -1px;
+  --aug-border-left: -1px;
 }
 
 .network {
