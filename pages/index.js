@@ -43,7 +43,7 @@ export default function Home () {
               </div>
               <div className="row flex-space-between">
                 <div>
-                  <Icon alt="Github icon" image="github-mark-white.svg" text="Github" url="https://github.com" />
+                  <Icon alt="Github icon" image="github-mark-white.svg" text="Github" url="https://github.com/rowan-james" />
                   <Icon alt="Email icon" image="mail.svg" text="Email" url="mailto:rowan.james.dev@gmail.com" />
                 </div>
               </div>
